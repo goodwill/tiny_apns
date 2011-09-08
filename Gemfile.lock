@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tiny_apns (0.0.1)
+    tiny_apns (0.0.3)
       activesupport (>= 3.0.0)
 
 GEM

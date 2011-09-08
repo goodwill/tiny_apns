@@ -61,7 +61,7 @@ module TinyAPNS
 
   class Connection
     def initialize(options)
-      options.assert_valid_keys(:cert, :port, :host, :passphrase, :feedback_host, :gateway_host)
+      options.assert_valid_keys(:cert, :port, :host, :passphrase, :feedback_host, :gateway_host, :sandbox)
       @options=options.with_indifferent_access
     end
 
@@ -80,17 +80,20 @@ module TinyAPNS
       raise ArgumentError.new("Invalid mode, valid options are :gateway,:feedback") unless [:gateway, :feedback].include?(mode)
       raise ArgumentError.new("Missing option :cert") unless options.has_key?(:cert) || @options.has_key?(:cert)
 
-      default_options={:passphrase=>''}
-      host_suffix="push.apple.com"
-      host_suffix="sandbox.#{host_suffix}" unless Rails.env.downcase=='production'
-
+      default_options={:passphrase=>'', :sandbox=>true}
+      host_suffix="push.apple.com" 
+      
       default_options[:host]=@options["#{mode}_host"] if @options.has_key?("#{mode}_host")
-      default_options[:host]||="#{mode.to_s}.#{host_suffix}"
 
       default_options[:port]=(mode==:gateway ? 2195 : 2196)
 
       result=default_options.merge(@options.except(:feedback_host, :gateway_host)).merge(options)
-      puts result.inspect
+      
+      if result[:sandbox]
+        host_suffix="sandbox.#{host_suffix}"       
+        result[:host]||="#{mode.to_s}.#{host_suffix}"
+      end
+
 
       return result.with_indifferent_access
     end
