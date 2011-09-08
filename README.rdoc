@@ -1,0 +1,5 @@
+= TinyApns
+
+This project rocks and uses MIT-LICENSE.
+
+Extracted from PRX/apns_on_rails. I only want something lightweight, all the heavy loads are taken by guys creating the original library.

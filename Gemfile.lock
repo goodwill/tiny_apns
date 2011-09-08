@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    tiny_apns (0.0.1)
+      activesupport (~> 3.0.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  tiny_apns!
