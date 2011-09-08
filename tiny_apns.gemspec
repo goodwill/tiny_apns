@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = TinyApns::VERSION
   s.authors     = ["William Yeung"]
   s.email       = ["william@tofugear.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/goodwill/tiny_apns"
   s.summary     = "An ultra lightweight library for handling Apple Push Notification (APNS)"
   s.description = ""
 
