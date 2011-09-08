@@ -2,12 +2,14 @@ PATH
   remote: .
   specs:
     tiny_apns (0.0.1)
-      activesupport (~> 3.0.0)
+      activesupport (>= 3.0.0)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.0.10)
+    activesupport (3.1.0)
+      multi_json (~> 1.0)
+    multi_json (1.0.3)
 
 PLATFORMS
   ruby
